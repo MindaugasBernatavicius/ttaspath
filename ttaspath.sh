@@ -19,5 +19,5 @@ done
 traceroute -Tn -p 443 "$d" \
 | awk '/^[[:space:]]*[0-9]+[[:space:]]/ { for (i=2; i<=NF; i++) if ($i ~ /^[0-9.]+$/) { print $i; break } }' \
 | while read -r ip; do
-    echo "$ip" | whois -h whois.cymru.com | awk 'NR>1{print}'
+    whois -h whois.cymru.com "$ip" | awk 'NR>1{print}'
   done
