@@ -1,1 +1,5 @@
-bash -c 'd="$1"; echo "$d"' _ "$DOMAIN"
+#!/usr/bin/env bash
+set -euo pipefail
+
+d="${1:-}"
+echo "$d"
